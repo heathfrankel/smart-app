@@ -9,13 +9,10 @@ router.get('/', function(req, res, next) {
   const query = req.query;
   
   // *********************************************************
-  // TODO: 1. extract code and state parameters from query parameters
+  // TODO: 5. extract code and state parameters from query parameters
   
-  //const code = null;
-  //const state = null;
-  // ---------------------------------------------------------
-  const code = query.code;
-  const state = query.state;
+  const code = null;
+  const state = null;
   
   // *********************************************************
 
@@ -45,15 +42,9 @@ router.get('/', function(req, res, next) {
         = url.format({ protocol: req.protocol, host: req.get('host'), pathname: req.baseUrl });
     
     // ************************************
-    // TODO 5. Populate the Token request body
+    // TODO 6. Populate the Token request body
     
-    //const token_request = {}; 
-    const token_request = {
-      grant_type:   "authorization_code",
-      code:         code,      
-      client_id:    client_id,
-      redirect_uri: redirect_url
-    };
+    const token_request = {}; 
     
     // ************************************
 
@@ -66,18 +57,13 @@ router.get('/', function(req, res, next) {
       const token_data = response.data;    
       
       // ********************************************************
-      // TODO 6. Extract access token and launch context from token data
+      // TODO 7. Extract access token and launch context from token data
       //         and save in session for later
 
-      //req.session.access_token = null;
-      //req.session.id_token = null;
-      //req.session.scopes = null;
-      //req.session.patient = null;
-      // --------------------------------------------------------
-      req.session.access_token = token_data.access_token;
-      req.session.id_token = token_data.id_token;
-      req.session.scopes = token_data.scope;
-      req.session.patient = token_data.patient;
+      req.session.access_token = null;
+      req.session.id_token = null;
+      req.session.scopes = null;
+      req.session.patient = null;
       
       // ********************************************************
       console.log("--- Access Token Response ---");

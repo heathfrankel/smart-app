@@ -11,11 +11,8 @@ router.get('/', function(req, res, next) {
   // *********************************************************
   // TODO: 1. Extract iss and launch parameters from Launch request query
   
-  //const iss = null;
-  //const launch = null;
-  // ---------------------------------------------------------
-  const iss = query.iss;
-  const launch = query.launch;
+  const iss = null;
+  const launch = null;
   
   // *********************************************************
   
@@ -32,9 +29,7 @@ router.get('/', function(req, res, next) {
   // **********************************************************
   // TODO: 2. Build Authorization Discover Request URL
   
-  //const smart_config_url = null;
-  // ----------------------------------------------------------
-  const smart_config_url = iss + '/.well-known/smart-configuration';
+  const smart_config_url = null;
   
   // **********************************************************
   
@@ -49,11 +44,8 @@ router.get('/', function(req, res, next) {
     // **********************************************************************
     // TODO: 3. Extract authorization_endpoint and token_endpoint config_data
     
-    //const authorization_endpoint =  null;
-    //const token_endpoint = null;
-    // ----------------------------------------------------------------
-    const authorization_endpoint =  config_data.authorization_endpoint;
-    const token_endpoint = config_data.token_endpoint;
+    const authorization_endpoint =  null;
+    const token_endpoint = null;
 
     // **********************************************************************
 
@@ -86,17 +78,7 @@ router.get('/', function(req, res, next) {
     // ********************************************
     // TODO: 4. construct authorize parameters 
     
-    // const authorize_parameters = { };
-    // ---------------------------------
-    const authorize_parameters = {
-      response_type: "code",
-      client_id: client_id,
-      redirect_uri: redirect_url,
-      aud: iss,
-      state: state,
-      scope: scopes,
-      launch: launch
-    };
+     const authorize_parameters = { };
     
     // ********************************************
 
