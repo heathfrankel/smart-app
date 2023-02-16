@@ -56,8 +56,7 @@ router.get('/', function(req, res, next) {
     });
   }
   else {
-    const patientObj = { };
-    return res.render('index', { title: 'SMART Launch App', patientObj });
+    return res.render('index', { title: 'SMART Launch App' });
   }
 });
 
