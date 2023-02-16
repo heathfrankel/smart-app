@@ -13,7 +13,6 @@ router.get('/', function(req, res, next) {
   // retreive patient from session data
   const patient =  session.patient;
 
-  console.log(`fhir_base_url: ${fhir_base_url}`);
   if (fhir_base_url !== undefined) {
     // build Patient Read URL
     const patient_read_url = url.parse(fhir_base_url);
