@@ -31,6 +31,7 @@
       </div>
       
       <h2>Patient</h2>
+      <% if (locals.patientObj) { %>
       <div class="mb-2 row">
         <label for="patient-id" class="col-sm-1 col-form-label">Id</label>
         <div class="col-sm-11">
@@ -47,6 +48,11 @@
           <input type="text" class="form-control" id="patient-name-given" readonly value="<%= patientObj.name[0].given[0] %>">
         </div>
       </div>
+      <% } else { %>
+      <div class="mb-2 row">
+        <label for="patient-id" class="col-sm col-form-label">No Patient Context</label>
+      </div>
+      <% } %>
     </div> <!-- container -->
     
     <!--script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script!-->

@@ -13,45 +13,51 @@ router.get('/', function(req, res, next) {
   // retreive patient from session data
   const patient =  session.patient;
 
-  // build Patient Read URL
-  const patient_read_url = url.parse(fhir_base_url);
-  patient_read_url.pathname = patient_read_url.pathname + "/Patient/" + patient;
-  const patient_read = url.format(patient_read_url);
-  
-  // retreive access_token from session data
-  const access_token =  session.access_token;
-  
-  // ********************************************
-  // TODO: 8. Include Authorization Bearer header 
-
-  const req_config = { 
-    headers: {
-      'Accept': 'application/json' 
-    }
-  }
-  
-  // ********************************************
-
-  console.log("--- Patient Read ---")
-  console.log(`GET ${patient_read}`);
-
-  // Patient Read Request
-  http.get(patient_read, req_config)
-  .then(function (response) {
-    // retreive Patient resource from response data
-    const patientObj = response.data;
+  console.log(`fhir_base_url: ${fhir_base_url}`);
+  if (fhir_base_url !== undefined) {
+    // build Patient Read URL
+    const patient_read_url = url.parse(fhir_base_url);
+    patient_read_url.pathname = patient_read_url.pathname + "/Patient/" + patient;
+    const patient_read = url.format(patient_read_url);
     
-    console.log("--- Patient Response ---")
-    console.log(JSON.stringify(patientObj));
+    // retreive access_token from session data
+    const access_token =  session.access_token;
+    
+    // ********************************************
+    // TODO: 8. Include Authorization Bearer header 
 
-    // render Patient resource
-    return res.render('index', { title: 'SMART Launch App', patientObj});
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-    next(error);
-  });
+    const req_config = { 
+      headers: {
+        'Accept': 'application/json' 
+      }
+    }
+    
+    // ********************************************
+
+    console.log("--- Patient Read ---")
+    console.log(`GET ${patient_read}`);
+
+    // Patient Read Request
+    http.get(patient_read, req_config)
+    .then(function (response) {
+      // retreive Patient resource from response data
+      const patientObj = response.data;
+      
+      console.log("--- Patient Response ---")
+      console.log(JSON.stringify(patientObj));
+
+      // render Patient resource
+      return res.render('index', { title: 'SMART Launch App', patientObj });
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+      next(error);
+    });
+  }
+  else {
+    return res.render('index', { title: 'SMART Launch App' });
+  }
 });
 
 module.exports = router;
