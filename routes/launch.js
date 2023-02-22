@@ -23,7 +23,7 @@ router.get('/', function(req, res, next) {
   console.log(`iss: ${iss}`);
   console.log(`launch: ${launch}`);
 
-  if (iss === undefined || launch === undefined) 
+  if (!iss && !launch) 
   {
     res.statusCode = 400;
     return res.send("iss and launch parameters must be provided");

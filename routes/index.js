@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
   // retreive patient from session data
   const patient =  session.patient;
   
-  if (fhir_base_url !== undefined) {
+  if (fhir_base_url) {
     // build Patient Read URL
     const patient_read_url = url.parse(fhir_base_url);
     patient_read_url.pathname = patient_read_url.pathname + "/Patient/" + patient;
@@ -53,6 +53,8 @@ router.get('/', function(req, res, next) {
     });
   }
   else {
+    res.locals.launch_url = url.format({ protocol: req.protocol, host: req.get('host'), port: req.get('port'), pathname: "launch" });
+
     return res.render('index', { title: 'SMART Launch App' });
   }
 });

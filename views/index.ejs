@@ -52,9 +52,11 @@
           <div class="mb-2 row">
             <label for="patient-id" class="col-sm col-form-label">No Patient Context</label>
           </div>
-          <div class="mb-2 row">
-            <a class="btn btn-primary col-sm-4" href="https://launch.smarthealthit.org/?launch_url=http%3A%2F%2Flocalhost%3A8080%2Flaunch" role="button">SMART Launcher</a>
-          </div>
+          <% if (locals.launch_url) { %>
+            <div class="mb-2 row">
+              <a class="btn btn-primary col-sm-4" href="https://launch.smarthealthit.org/?launch_url=<%= launch_url %>" role="button">SMART Launcher</a>
+            </div>
+          <% } %>
         <% } %>
       </div> <!-- container -->
     
