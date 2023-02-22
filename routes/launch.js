@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
   console.log(`iss: ${iss}`);
   console.log(`launch: ${launch}`);
 
-  if (iss === undefined || launch === undefined) 
+  if (!iss && !launch)
   {
     res.statusCode = 400;
     return res.send("iss and launch parameters must be provided");
@@ -35,7 +35,7 @@ router.get('/', function(req, res, next) {
   
   console.log("--- Authorization Discovery Request ---");
   console.log(`GET ${smart_config_url}`);
-  
+    
   // GET smart-configuration
   http.get(smart_config_url)
   .then(function (response) {
