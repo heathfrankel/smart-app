@@ -33,6 +33,11 @@ router.get('/', function(req, res, next) {
   
   // **********************************************************
   
+  if (!smart_config_url) {
+    res.statusCode = 500;
+    return res.send("Authorization Discovery URL must not be null or empty");
+  }
+
   console.log("--- Authorization Discovery Request ---");
   console.log(`GET ${smart_config_url}`);
     
@@ -83,6 +88,11 @@ router.get('/', function(req, res, next) {
     // ********************************************
 
     console.log(JSON.stringify(authorize_parameters, null, 2));
+
+    if (!authorization_endpoint) {
+      res.statusCode = 500;
+      res.send("Authorization endpoint must not be null or empty");
+    }
 
     const authorization_url = url.parse(authorization_endpoint);
     authorization_url.query = authorize_parameters;
