@@ -49,10 +49,15 @@
         </div>
       </div>
       <% } else { %>
-      <div class="mb-2 row">
-        <label for="patient-id" class="col-sm col-form-label">No Patient Context</label>
-      </div>
-      <% } %>
+        <div class="mb-2 row">
+          <label for="patient-id" class="col-sm col-form-label">No Patient Context</label>
+        </div>
+        <% if (locals.launch_url) { %>
+          <div class="mb-2 row">
+            <a class="btn btn-primary col-sm-4" href="https://launch.smarthealthit.org/?launch_url=<%= launch_url %>" role="button">SMART Launcher</a>
+          </div>
+        <% } %>
+    <% } %>
     </div> <!-- container -->
     
     <!--script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script!-->
