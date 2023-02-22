@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
   const query = req.query;
   
   // *********************************************************
-  // TODO: 1. extract code and state parameters from query parameters
+  // TODO: 5. extract code and state parameters from query parameters
   
   //const code = null;
   //const state = null;
@@ -45,7 +45,7 @@ router.get('/', function(req, res, next) {
         = url.format({ protocol: req.protocol, host: req.get('host'), pathname: req.baseUrl });
     
     // ************************************
-    // TODO 5. Populate the Token request body
+    // TODO 6. Populate the Token request body
     
     //const token_request = {}; 
     const token_request = {
@@ -66,7 +66,7 @@ router.get('/', function(req, res, next) {
       const token_data = response.data;    
       
       // ********************************************************
-      // TODO 6. Extract access token and launch context from token data
+      // TODO 7. Extract access token and launch context from token data
       //         and save in session for later
 
       //req.session.access_token = null;
