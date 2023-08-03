@@ -1,5 +1,5 @@
-# Module 6: Implement SMART App Launch exercises 
-This repository provides the initial **SMART Launch App** source code for the Module 6 Implement SMART App Launch exercises, as part of the FHIR Fundermentals for Australian Developers course.
+# Module 6: Implement SMART App Launch Exercises 
+This repository provides the initial **SMART Launch App** source code for the Module 6 Implement SMART App Launch workshop exercises, as part of the FHIR Fundermentals for Australian Developers course.
 
 ## Create SMART Launch App Sandbox
 As part of the Module 6 exercises you can use https://codesandbox.io/ to launch an online code development environment using a Web browser, such as Google Chrome. Simply browse to https://githubbox.com/hl7au/training-ffd-module6 to launch the sandbox and follow the workshop instructor's instructions.
